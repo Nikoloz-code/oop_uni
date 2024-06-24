@@ -9,8 +9,9 @@ ___
 ```cpp
 int main()
 {
-  unique_ptr<noisyInt> p = make_unique<int>(77);
-  cout << "First object " << p->data << endl;
+  std::unique_ptr<int> p = std::make_unique<int>(77);
+  
+  std::unique_ptr<int> q(new int(99));
 }
 ```
 ___
@@ -18,7 +19,7 @@ ___
 ```cpp
 int main()
 {
-  unique_ptr<int> p = make_unique<int>(77);
+  std::unique_ptr<int> p = std::make_unique<int>(77);
 
   int* rp = p.get();
 
@@ -36,7 +37,7 @@ ___
 ```cpp
 int main()
 {
-  unique_ptr<int> p = make_unique<int>(77);
+  std::unique_ptr<int> p = std::make_unique<int>(77);
 
   int* rp = p.release();
   if(p == nullptr) std::cout << "p is NULL" << '\n';
